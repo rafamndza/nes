@@ -28,3 +28,52 @@ class CircleButton extends HTMLElement {
           overflow: hidden;
           position: relative;
         }
+        .button::before {
+            content: "";
+            display: block;
+            width: calc(var(--size) * 0.6);
+            height: calc(var(--size) * 0.6);
+            border-top: 2px solid #fff7;
+            border-radius: 50%;
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            transform: rotate(-40deg);
+          }
+    
+          .button::after {
+            content: "";
+            display: block;
+            background: #E25A61;
+            width: calc(var(--size) * 0.4);
+            height: calc(var(--size) * 0.4);
+            border-radius: 50%;
+            position: absolute;
+            bottom: -1px;
+            right: -1px;
+            opacity: 0.75;
+          }
+    
+          .label {
+            margin-top: 3px;
+            font-family: "Pretendo";
+            font-size: 10px;
+            color: #D23B40;
+            text-align: right;
+            transform: translateX(-15%);
+          }
+    
+          .pressed {
+            box-shadow: inset 0 0 2px 2px #1E0606;
+            background: #ce3036;
+          }
+    
+          .pressed::after {
+            content: none;
+          }
+    
+          .pressed::before {
+            transform: rotate(180deg);
+          }
+        `;
+      }
