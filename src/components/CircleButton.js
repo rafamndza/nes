@@ -77,3 +77,30 @@ class CircleButton extends HTMLElement {
           }
         `;
       }
+      press() {
+        const button = this.shadowRoot.querySelector(".button");
+        button.classList.add("pressed");
+        const time = ~~(Math.random() * 4000) + 1000;
+        setTimeout(() => this.press(), time);
+        setTimeout(() => button.classList.remove("pressed"), 250);
+      }
+    
+      connectedCallback() {
+        this.label = this.getAttribute("label") ?? "A";
+        this.render();
+        this.press();
+      }
+    
+      render() {
+        this.shadowRoot.innerHTML = /* html */`
+        <style>${CircleButton.styles}</style>
+        <div class="container">
+          <div class="button"></div>
+        </div>
+        <div class="label">${this.label}</div>
+        `;
+      }
+    }
+    
+    customElements.define("circle-button", CircleButton);
+    
