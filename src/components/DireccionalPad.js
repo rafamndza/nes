@@ -104,3 +104,30 @@ class DireccionalPad extends HTMLElement {
         }
       `;
     }
+    connectedCallback() {
+      this.render();
+    }
+  
+    render() {
+      this.shadowRoot.innerHTML = /* html */`
+      <style>${DireccionalPad.styles}</style>
+      <div class="container">
+        <div class="dpad horizontal"></div>
+        <div class="dpad vertical"></div>
+        <div class="dpad-inner">
+          <div class="dpad horizontal">
+            <span>🡄</span>
+            <span>🡆</span>
+          </div>
+          <div class="dpad vertical">
+            <span>🡅</span>
+            <span>🡇</span>
+          </div>
+          <div class="center"></div>
+        </div>
+      </div>`;
+    }
+  }
+  
+  customElements.define("direccional-pad", DireccionalPad);
+  
