@@ -47,3 +47,60 @@ class DireccionalPad extends HTMLElement {
           align-items: center;
           filter: drop-shadow(0 0 0 #111);
         }
+        .dpad-inner .dpad {
+          background: #282828;
+        }
+  
+        .dpad-inner .dpad.horizontal {
+          width: 90%;
+          height: calc(var(--size) * 0.33);
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          color: #393939;
+          font-size: 22px;
+        }
+  
+        .dpad-inner .dpad.vertical {
+          width: calc(var(--size) * 0.33);
+          height: 90%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          color: #393939;
+          font-size: 22px;
+        }
+  
+        .dpad-inner .center {
+          background: #050505;
+          width: 21%;
+          height: 20%;
+          border-radius: 50%;
+          position: relative;
+          z-index: 50;
+        }
+  
+        .dpad-inner .dpad.horizontal span:first-child {
+          --x: 4px;
+          --y: -1px;
+        }
+  
+        .dpad-inner .dpad.horizontal span:last-child {
+          --x: -4px;
+          --y: -1px;
+        }
+  
+        .dpad-inner .dpad.vertical span:first-child {
+          --y: -2px;
+        }
+  
+        .dpad-inner .dpad.vertical span:last-child {
+          --y: 2px;
+        }
+  
+        .dpad-inner .dpad span {
+          transform: translate(var(--x, 0), var(--y, 0));
+        }
+      `;
+    }
