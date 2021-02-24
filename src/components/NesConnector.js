@@ -54,3 +54,28 @@ class NesConnector extends HTMLElement {
         }
       `;
     }
+    connectedCallback() {
+        this.label = this.getAttribute("label") ?? "1";
+        this.render();
+      }
+    
+      render() {
+        this.shadowRoot.innerHTML = /* html */`
+        <style>${NesConnector.styles}</style>
+        <div class="text">${this.label}</div>
+        <div class="container">
+          <div class="connector">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+          </div>
+        </div>`;
+      }
+    }
+    
+    customElements.define("nes-connector", NesConnector);
+    
