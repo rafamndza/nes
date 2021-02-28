@@ -134,3 +134,33 @@ class NesConsoleFront extends HTMLElement {
   connectedCallback() {
     this.render();
   }
+
+  render() {
+    this.shadowRoot.innerHTML = /* html */`
+    <style>${NesConsoleFront.styles}</style>
+    <div class="container">
+      <div class="top-container">
+        <div class="door-container">
+          <div class="door">
+            <div class="brand">NaNtendo</div>
+            <div class="model">Entertainment System™</div>
+          </div>
+          <div class="black-part"></div>
+        </div>
+      </div>
+      <div class="bottom-container">
+        <div class="power-button-container">
+          <div class="led on"></div>
+          <nes-button label="Power"></nes-button>
+          <nes-button label="Reset"></nes-button>
+        </div>
+        <div class="black-part">
+          <nes-connector label="1"></nes-connector>
+          <nes-connector label="2"></nes-connector>
+        </div>
+      </div>
+    </div>`;
+  }
+}
+
+customElements.define("nes-console-front", NesConsoleFront);
