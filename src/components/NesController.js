@@ -77,3 +77,60 @@ class NesController extends HTMLElement {
       .decoration {
         background: #A3A3A3;
       }
+      .decoration:first-child {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+
+      .decoration:last-child {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        height: 8%;
+      }
+
+      .options-buttons {
+        height: 26%;
+        background: #B2B2B2;
+        border: 4px solid #D0D0D0;
+        box-shadow: inset 3px 3px 0 #888;
+
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      .options-buttons .button {
+        background: #3A3A3A;
+        border-radius: 4px;
+        width: 26%;
+        height: 38%;
+        box-shadow: inset 2px 2px 1px #0003;
+      }
+
+      .label-container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      .brand-container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+      }
+
+      .label,
+      .brand {
+        font-family: "Pretendo";
+        font-size: 10px;
+        color: #D23B40;
+        text-align: center;
+      }
+
+      .brand {
+        font-size: 14px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translate(-10%, 0);
+      }
