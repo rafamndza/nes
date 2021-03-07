@@ -134,3 +134,109 @@ class NesController extends HTMLElement {
         align-items: center;
         transform: translate(-10%, 0);
       }
+      .buttons-container {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 50% 50%;
+        flex-direction: column;
+        justify-items: center;
+      }
+
+      .circle-buttons-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: 70%;
+        transform: translate(-5%, 15%);
+      }
+
+      .pad-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .shadow-container {
+        perspective: 250px;
+        transform-style: preserve-3d;
+      }
+
+      .shadow {
+        width: 100%;
+        height: 30px;
+        background: #0004;
+        animation: move-shadow 1.5s ease-in-out infinite alternate;
+        border-radius: 4px;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(-25px);
+        }
+
+        100% {
+          transform: translateY(25px);
+        }
+      }
+
+      @keyframes move-shadow {
+        0% {
+          transform: translateY(50px) rotateX(50deg) scale(0.8);
+          filter: blur(2px);
+          opacity: 0.75;
+        }
+
+        100% {
+          transform: translateY(50px) rotateX(50deg) scale(1.05);
+          filter: blur(0);
+          opacity: 1;
+        }
+      }
+    `;
+  }
+
+  connectedCallback() {
+    this.render();
+  }
+
+  render() {
+    this.shadowRoot.innerHTML = /* html */`
+    <style>${NesController.styles}</style>
+    <div class="outer-container">
+      <div class="top">
+        <div class="top-controller"></div>
+      </div>
+      <div class="inner-container">
+        <div class="pad-container">
+          <direccional-pad></direccional-pad>
+        </div>
+        <div class="options-container">
+          <div class="decoration"></div>
+          <div class="decoration"></div>
+          <div class="decoration label-container">
+            <div class="label">SELECT</div>
+            <div class="label">START</div>
+          </div>
+          <div class="options-buttons">
+            <div class="select button"></div>
+            <div class="start button"></div>
+          </div>
+          <div class="decoration"></div>
+        </div>
+        <div class="buttons-container">
+          <div class="brand-container">
+            <div class="brand">NaNtendo</div>
+          </div>
+          <div class="circle-buttons-container">
+            <circle-button label="B"></circle-button>
+            <circle-button label="A"></circle-button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="shadow-container">
+      <div class="shadow"></div>
+    </div>`;
+  }
+}
+
+customElements.define("nes-controller", NesController);
